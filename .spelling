@@ -7,6 +7,7 @@ aws-amplify-angular
 @aws-amplify/auth
 @aws-amplify/storage
 aws-mobile-appsync-sdk-ios
+apiKey
 App.vue
 app.js
 authMode
@@ -50,6 +51,7 @@ github
 HOCs
 installable
 i.e.
+iam
 ios
 item.class.ts
 index.js
@@ -65,6 +67,7 @@ NoteTitle
 NoteContent
 npm
 node.js
+oidc
 onPick
 pre-signed
 pre-built
@@ -107,6 +110,7 @@ isSceneLoaded
 isMuted
 autoplay
 screencap
+userPools
 unpublish
 withAuthenticator
 webview
@@ -196,6 +200,7 @@ myAmplifyProject
 _blank
 OnInit
 todos
+autolinking
 
 # js/hub.md
 onHubCapsule
@@ -434,6 +439,28 @@ status#createdAt
 IN_TRANSIT
 statusCreatedAt
 ByStatus
+postID
+parameterization
+byname
+newHire
+byCustomerByStatusByDate
+byWarehouse
+AccountRepresentative
+byRepresentativebyDate
+byTitle
+jobTitle
+dynamoDB
+connectionWithKeyExamples.md
+Pre
+Auth.currentAuthenticatedUser
+AWSMobileClient.sharedInstance
+AWSMobileClient.default
+getTodo
+listTodos
+createTodo
+updateTodo
+deleteTodo
+
 
 # cli-toolchain/cognito-triggers.md
 Lambda
@@ -563,6 +590,9 @@ DynamoDBTable
 amplifyMeta.json
 transform.conf.json
 
+#cli-toolchain/quickstart.md
+richard
+
 #cli-toolchain/usage.md
 poolData
 cleartext
@@ -572,6 +602,7 @@ OneGraph
 transpile
 transpiling
 transpiled
+util
 
 # android/analytics.md
 ActivityLifecycleCallbacks
@@ -613,6 +644,10 @@ geolocation
 appcompat
 AWSMobileClient
 app_id
+unsanitized
+ClientMetadata
+clientMetadata
+validationData
 logic_protocol_scheme
 xml
 IdentityManager
@@ -843,29 +878,29 @@ CocoaLumberjack
 AWSCore
 DocSets
 macOS
-AWSAuth 
-AWSAuthCore 
-AWSAuthUI 
-AWSAutoScaling 
-AWSCloudWatch 
-AWSCognito 
-AWSCognitoAuth 
-AWSCognitoIdentityProvider 
-AWSCognitoIdentityProviderASF 
-AWSDynamoDB 
-AWSElasticLoadBalancing 
-AWSFacebookSignIn 
-AWSGoogleSignIn 
-AWSIoT 
-AWSKinesis 
-AWSLambda 
-AWSLex 
-AWSLogs 
-AWSMachineLearning 
-AWSPinpoint 
-AWSPolly 
-AWSRekognition 
-AWSSimpleDB 
+AWSAuth
+AWSAuthCore
+AWSAuthUI
+AWSAutoScaling
+AWSCloudWatch
+AWSCognito
+AWSCognitoAuth
+AWSCognitoIdentityProvider
+AWSCognitoIdentityProviderASF
+AWSDynamoDB
+AWSElasticLoadBalancing
+AWSFacebookSignIn
+AWSGoogleSignIn
+AWSIoT
+AWSKinesis
+AWSLambda
+AWSLex
+AWSLogs
+AWSMachineLearning
+AWSPinpoint
+AWSPolly
+AWSRekognition
+AWSSimpleDB
 AWSUserPoolsSignIn
 v2.7
 
@@ -910,6 +945,7 @@ Keychain
 
 #  ios/start.md
 xcworkspace
+API.swift
 
 # ios/storage.md
 S3ObjectInput

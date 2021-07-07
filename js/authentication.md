@@ -90,6 +90,21 @@ A configuration file called `aws-exports.js` will be copied to your configured s
 
 The CLI allows you to configure [Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html) for your AWS Cognito User Pool.  These enable you to add custom functionality to your registration and authentication flows. [Read more]({%if jekyll.environment == 'production'%}{{site.amplify.docs_baseurl}}{%endif%}/cli-toolchain/)
 
+Many Cognito Lambda Triggers accept unsanitized key/value pairs in the form of a 'ClientMetadata' attribute.  To configure a static set of key/value pairs, you can define a `clientMetadata` key in the `Auth.configure` function.  You can also pass a `clientMetadata` parameter to the various `Auth` functions which result in Cognito Lambda Trigger execution.   These functions include:
+
+- `Auth.changePassword`
+- `Auth.completeNewPassword`
+- `Auth.confirmSignIn`
+- `Auth.confirmSignUp`
+- `Auth.forgotPasswordSubmit`
+- `Auth.resendSignUp`
+- `Auth.sendCustomChallengeAnswer`
+- `Auth.signIn`
+- `Auth.signUp`
+- `Auth.updateUserAttributes`
+- `Auth.verifyUserAttribute`
+
+Please note that some of triggers which accept a 'validationData' attribute will use clientMetadata as the value for validationData.  Exercise caution with using clientMetadata when you are relying on validationData.
 
 ##### Configure Your App
 
@@ -169,7 +184,10 @@ Amplify.configure({
         storage: new MyStorage(),
         
         // OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
-        authenticationFlowType: 'USER_PASSWORD_AUTH'
+        authenticationFlowType: 'USER_PASSWORD_AUTH',
+
+        // OPTIONAL - Manually set key value pairs that can be passed to Cognito Lambda Triggers
+        clientMetadata: { myCustomKey: 'myCustomValue' }
     }
 });
 
@@ -313,7 +331,7 @@ The `Auth.signUp` promise returns a data object of type [`ISignUpResult`](https:
 
 **Forcing Email Uniqueness in Cognito User Pools**
 
-When your Cognito User Pool sign-in options are set to "*Username*", and "*Also allow sign in with verified email address*", *signUp()* method creates a new user account every time, without validating email uniqueness. In this case you will end up having multiple user pool identities and previously created account's attribute is changed to *email_verified : false*. 
+When your Cognito User Pool sign-in options are set to "*Username*", and "*Also allow sign in with verified email address*", the *signUp()* method creates a new user account every time it's called, without validating email uniqueness. In this case you will end up having multiple user pool identities and all previously created accounts will have their *email_verified* attribute changed to *false*. 
 
 To enforce Cognito User Pool signups with a unique email, you need to change your User Pool's *Attributes* setting in [Amazon Cognito console](https://console.aws.amazon.com/cognito) as the following:
 
@@ -2004,7 +2022,7 @@ export const handler = async (event, context) => {
 
 For React, you can create your own theme and use it to render Amplify components:
 
-Your custom theme must use the selectors from the following [template](https://github.com/aws-amplify/amplify-js/blob/master/packages/aws-amplify-react/src/Amplify-UI/Amplify-UI-Theme.jsx)
+Your custom theme must use the selectors from the following [template](https://github.com/aws-amplify/amplify-js/blob/master/packages/aws-amplify-react/src/Amplify-UI/Amplify-UI-Theme.tsx)
 {: .callout .callout--info}
 
 ```javascript
